@@ -1,0 +1,484 @@
+/* =======REVIEWS========  */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Rubik Mono One", monospace;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+    font-family: 'Arial', sans-serif;
+    background-color: #ffeae0;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  
+  main {
+    padding: 80px 20px; /* Add padding to compensate for fixed header */
+  }
+  
+  /* Header bar styles */
+  header {
+    background-color: #662424;
+    box-shadow: 0 2px 20px rgb(253, 124, 124);
+    padding: 6px 0;
+    width: 100%; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    font-size: 36px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+  
+  .nav .logo {
+    display: flex;
+    align-items: center;
+    position: relative; 
+  }
+  
+  
+  
+  .nav .logo h1 {
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 350;
+    color: #ffff;
+    margin: 0;
+    font-size: 48px; 
+    display: flex;
+    align-items: center;
+    letter-spacing: 2px;
+    margin-right: 10px;
+  }
+  
+  .nav .logo b {
+    font-family: "Rubik Mono One", monospace;
+    color: #FF712E; 
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-left: 12px;
+    
+  }
+  
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin-left: 20px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px; 
+    font-weight: normal; 
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    background-color: #ff5722;
+    padding: 10px;
+  }
+  
+  
+  main {
+      padding: 80px 20px; /* Add padding to compensate for fixed header */
+    }
+    
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #ffeae0;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+    
+    .header {
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #333;
+    }
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: poppins;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+#testimonials{
+    display: flex;
+    margin-top: 70px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:100%;
+}
+.testimonial-heading{
+    letter-spacing: 1px;
+    margin: 30px 0px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.testimonial-heading h1{
+    font-size: 2.2rem;
+    font-weight: 500;
+    background-color: #202020;
+    color: #ffffff;
+    padding: 10px 20px;
+}
+.testimonial-heading span{
+    font-size: 30px;
+    color: #252525;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.testimonial-box-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width:100%;
+}
+.testimonial-box{
+    width:500px;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 15px;
+    cursor: pointer;
+    margin-bottom: 6%;
+
+}
+.profile-img{
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+.profile-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.profile{
+    display: flex;
+    align-items: center;
+}
+.name-user{
+    display: flex;
+    flex-direction: column;
+}
+.name-user strong{
+    color: #3d3d3d;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+.name-user span{
+    color: #979797;
+    font-size: 0.8rem;
+}
+.reviews{
+    color: #f9d71c;
+}
+.box-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.client-comment p{
+    font-size: 0.9rem;
+    text-align: justify;
+    color: #4b4b4b;
+}
+.testimonial-box:hover{
+    transform: translateY(-10px);
+    transition: all ease 0.3s;
+}
+ 
+@media(max-width:1060px){
+    .testimonial-box{
+        width:45%;
+        padding: 10px;
+    }
+}
+@media(max-width:790px){
+    .testimonial-box{
+        width:100%;
+    }
+    .testimonial-heading h1{
+        font-size: 1.4rem;
+    }
+}
+@media(max-width:340px){
+    .box-top{
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+    .reviews{
+        margin-top: 10px;
+    }
+}
+::selection{
+    color: #ffffff;
+    background-color: #252525;
+}
+
+
+/* Footer Section */
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  background-color:  #662424;
+  width: 100%;
+  padding: 50px 10%;
+  box-sizing: border-box;
+  margin-top: auto;
+}
+
+ul{
+  list-style: none;
+}
+
+.footer-col{
+  width: 25%;
+}
+
+.footer-col h4{
+  position: relative;
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-size: 22px;
+  color: #ffd2b6;
+  text-transform: capitalize;
+}
+
+.footer-col h4::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  background-color: #ff5722;
+  height: 4px;
+  width: 40px;
+}
+
+ul li:not(:last-child){
+  margin-bottom: 0;
+}
+
+ul li a{
+  display: block;
+  font-size: 19px;
+  text-transform: capitalize;
+  color: #bdb6b6;
+  text-decoration: none;
+  transition: 0.4s;
+}
+
+ul li a:hover{
+  color: white;
+  padding-left: 2px;
+}
+
+.links a{
+  display: inline-block;
+  height: 44px;
+  width: 44px;
+  color: white;
+  background-color: rgba(40, 130, 214, 0.8);
+  margin: 0 8px 8px 0;
+  text-align: center;
+  line-height: 44px;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.links a:hover{
+  color: #4d4f55;
+  background-color: white;
+}
+
+
+
+
+/* --------------MOBILE PORT-------------------- */
+
+/* Responsive styles */
+@media screen and (max-width: 750px) {
+  /* Header and navigation */
+  header {
+    background-color: #662424;
+    box-shadow: 0 2px 20px rgb(253, 124, 124);
+    padding: 10px 0;
+    width: 100%; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    font-size: 19px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  
+  .nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav .logo h1 {
+    font-size: 40px;
+    margin-right: 90px;
+  }
+
+  .nav .logo .logo-img {
+    width: 50px;
+    margin-right: 30px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+  nav ul li {
+    margin: 2px 0;
+  }
+
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px; 
+    font-weight: normal; 
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    background-color: #ff5722;
+    padding: 10px;
+  } 
+}
+
+/* Mobile Reviews Section */
+@media screen and (max-width: 768px) {
+  #testimonials {
+      margin-top: 250px;
+      margin-bottom: 50px;
+      padding: 0 40px;
+  }
+
+  .testimonial-heading h1 {
+      font-size: 1.8rem;
+      text-align: center;
+      padding: 8px 15px;
+  }
+
+  .testimonial-heading span {
+      font-size: 24px;
+      text-align: center;
+  }
+
+  .testimonial-box {
+      width: 100%;
+      margin: 10px 0;
+      padding: 15px;
+  }
+
+  .box-top {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .profile {
+      margin-bottom: 10px;
+  }
+
+  .reviews {
+      margin-top: 5px;
+  }
+
+  .client-comment p {
+      font-size: 14px;
+  }
+}
+
+
+/*Footer */
+@media(max-width: 740px){
+  footer {
+    display: flex;
+    flex-wrap: wrap;
+    background-color:  #662424;
+    width: 100%;
+    padding: 50px 10%;
+    box-sizing: border-box;
+    margin-top: auto;
+  }
+  
+  .footer-col{
+      width: 50%;
+      margin-bottom: 30px;
+      text-align: center;
+  }
+
+  .footer-col h4::before{
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media(max-width: 555px){
+  .footer-col{
+      width: 100%;
+  }
+}

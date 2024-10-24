@@ -1,0 +1,623 @@
+/* =======CONTACTS========  */
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik Mono One", monospace;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body {
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: 'Arial', sans-serif;
+  background-color: #ffeae0;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+
+main {
+  padding: 80px 20px; /* Add padding to compensate for fixed header */
+}
+
+/* Header bar styles */
+header {
+  background-color: #662424;
+  box-shadow: 0 2px 20px rgb(253, 124, 124);
+  padding: 8px 0;
+  width: 100%; 
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  font-size: 36px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.nav .logo {
+  display: flex;
+  align-items: center;
+  position: relative; 
+}
+
+
+
+.nav .logo h1 {
+  font-family: "Rubik Mono One", monospace;
+  font-weight: 350;
+  color: #ffff;
+  margin: 0;
+  font-size: 48px; 
+  display: flex;
+  align-items: center;
+  letter-spacing: 2px;
+  margin-right: 10px;
+}
+
+.nav .logo b {
+  font-family: "Rubik Mono One", monospace;
+  color: #FF712E; 
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-left: 12px;
+  
+}
+
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px; 
+  font-weight: normal; 
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #ff5722;
+  padding: 10px;
+}
+
+
+main {
+    padding: 80px 20px; /* Add padding to compensate for fixed header */
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffeae0;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .header {
+    font-size: 36px;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #333;
+  }
+
+
+/* Reservations Section Styles */
+
+.reservations {
+    margin-top: 100px;
+    background-color: #fbb0a3;
+    border-radius: 12px;
+    border-style: solid;
+    border-width: 5px;
+    border-color:  #730a0a;
+    padding: 90px 0;
+    text-align: center;
+    
+    }
+    
+    .reservation-form {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color:#8b3939;
+    padding: 30px; 
+    border-radius: 15px;
+    box-shadow:  0 6px 12px  rgba(0, 0, 0, 0.3);
+    }
+    
+    .reservation-form h2 {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 20px;
+    }
+    
+    .reservation-form form input,
+    .reservation-form form textarea {
+    display: block;
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px; 
+    border-radius: 5px;
+    border: none;
+    background-color: #fff;
+    }
+    
+    .reservation-form form button {
+      display: inline-block;
+      background-color: #f93030;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      border-width: 3px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .reservation-form form button:hover {
+    background-color: #e60000;
+    }
+    
+    
+    /* Contact Section Styles */
+    
+    .contact {
+      margin-top: 100px;
+      margin-bottom: 180px;
+      background-color: #ffd2b6;
+      border-color:  #730a0a;
+      border-style: solid;
+      border-width: 5px;
+      border-radius: 12px;
+      padding: 90px 0; 
+      text-align: center;
+      color:#fff
+    
+    }
+    
+    .contact-container {
+      max-width: 500px; 
+      margin: 0 auto;
+      padding: 20px; 
+      background-color:#8b3939;
+      border-radius: 18px; 
+      box-shadow:  0 6px 12px  rgba(0, 0, 0, 0.3);
+    }
+    
+    .contact h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .info-item {
+      margin: 10px 0;
+      text-align: center;
+    }
+    
+    .info-item a {
+      color: white
+    }
+    
+    .info-item i {
+      font-size: 20px;
+      margin-bottom: 2px;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+      display: block;
+      width: calc(100% - 20px);
+      padding: 15px;
+      margin-bottom: 15px; 
+      border-radius: 5px;
+      border: none;
+      background-color: #fff;
+    }
+    
+    .contact-form textarea {
+      resize: vertical;
+    }
+    
+    .contact-form button {
+      display: inline-block;
+      background-color: #f93030;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      border-width: 3px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .contact-form button:hover {
+      background-color: #e60000;
+    }
+    
+    
+    
+    /* Find Us- Maps */
+    
+    .maps { 
+      margin-top: 100px;
+      margin-bottom: 180px;
+      border-width: 5px;
+      background-color:#fbb0a3;
+      border-color:  #730a0a;
+      border-style: solid;
+      border-radius: 12px;
+      padding: 45px 0; 
+      text-align: center;
+      color:#000000
+      
+    }
+    
+    
+    .maps h2{
+        font-size: 65px;
+        letter-spacing: 3px;
+        font-family: "Roboto", sans-serif;
+        color: #5c4e4e;
+        margin-bottom: 25px; 
+    
+    }
+    
+    .maps-container {
+      max-width: 885px; 
+      height: 525px;
+      margin: 0 auto;
+      padding: 12px; 
+      background-color:#8b3939;
+      border-radius: 18px; 
+      box-shadow:  0 6px 12px  rgba(0, 0, 0, 0.3);
+    }
+
+
+
+    
+    
+/* Footer Section */
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  background-color:  #662424;
+  width: 100%;
+  padding: 50px 10%;
+  box-sizing: border-box;
+  margin-top: auto;
+}
+
+ul{
+  list-style: none;
+}
+
+.footer-col{
+  width: 25%;
+}
+
+.footer-col h4{
+  position: relative;
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-size: 22px;
+  color: #ffd2b6;
+  text-transform: capitalize;
+}
+
+.footer-col h4::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  background-color: #ff5722;
+  height: 4px;
+  width: 40px;
+}
+
+ul li:not(:last-child){
+  margin-bottom: 0;
+}
+
+ul li a{
+  display: block;
+  font-size: 19px;
+  text-transform: capitalize;
+  color: #bdb6b6;
+  text-decoration: none;
+  transition: 0.4s;
+}
+
+ul li a:hover{
+  color: white;
+  padding-left: 2px;
+}
+
+.links a{
+  display: inline-block;
+  height: 44px;
+  width: 44px;
+  color: white;
+  background-color: rgba(40, 130, 214, 0.8);
+  margin: 0 8px 8px 0;
+  text-align: center;
+  line-height: 44px;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.links a:hover{
+  color: #4d4f55;
+  background-color: white;
+}
+
+
+
+
+/* --------------MOBILE PORT-------------------- */
+
+@media screen and (max-width: 750px) {
+  /* Header and navigation */
+  header {
+    background-color: #662424;
+    box-shadow: 0 2px 20px rgb(253, 124, 124);
+    padding: 10px 0;
+    width: 100%; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    font-size: 19px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  
+  .nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav .logo h1 {
+    font-size: 40px;
+    margin-right: 90px;
+  }
+
+  .nav .logo .logo-img {
+    width: 50px;
+    margin-right: 30px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+  nav ul li {
+    margin: 2px 0;
+  }
+
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px; 
+    font-weight: normal; 
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    background-color: #ff5722;
+    padding: 10px;
+  } 
+}
+
+
+@media screen and (max-width: 768px) {
+  /* Main container adjustments */
+  main {
+    padding: 70px 20px;
+  }
+
+  /* Reservations Section */
+  .reservations {
+    margin-top: 120px;
+    padding: 40px 0;
+    margin-top: 380px;
+  }
+
+  .reservation-form {
+    max-width: 100%;
+    margin: 0 15px;
+    padding: 20px;
+  }
+
+  .reservation-form form input,
+  .reservation-form form textarea {
+    width: 100%;
+    margin-bottom: 12px;
+    font-size: 16px;
+  }
+
+  .reservation-form h2 {
+    font-size: 20px;
+    padding-top: 10px;
+  }
+
+
+  
+
+  /* Contact Section */
+  .contact {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding: 40px 0;
+  }
+
+  .contact-container {
+    max-width: 100%;
+    margin: 0 15px;
+    padding: 15px;
+  }
+
+  .contact h2 {
+    font-size: 24px;
+    padding-top: 10px;
+  }
+
+  .contact-info {
+    padding: 10px;
+  }
+
+  .info-item {
+    margin: 8px 0;
+  }
+
+  .info-item i {
+    font-size: 18px;
+  }
+
+  .info-item p,
+  .info-item a {
+    font-size: 14px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    font-size: 16px;
+  }
+
+  /* Maps Section */
+  .maps {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding: 30px 0;
+  }
+
+  .maps h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .maps-container {
+    max-width: 100%;
+    height: 400px;
+    margin: 0 15px;
+    padding: 8px;
+  }
+
+  .maps-container iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Buttons */
+  .reservation-form form button,
+  .contact-form button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+}
+
+/* Additional breakpoint for extra small devices */
+@media screen and (max-width: 480px) {
+  .reservation-form,
+  .contact-container,
+  .maps-container {
+    margin: 0 10px;
+    padding: 10px;
+  }
+
+  .maps h2 {
+    font-size: 20px;
+  }
+
+  .contact-info .info-item p,
+  .contact-info .info-item a {
+    font-size: 13px;
+  }
+}
+
+
+
+
+
+/*Footer */
+@media(max-width: 740px){
+  footer {
+    display: flex;
+    flex-wrap: wrap;
+    background-color:  #662424;
+    width: 100%;
+    padding: 50px 10%;
+    box-sizing: border-box;
+    margin-top: auto;
+  }
+  
+  .footer-col{
+      width: 50%;
+      margin-bottom: 30px;
+      text-align: center;
+  }
+
+  .footer-col h4::before{
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media(max-width: 555px){
+  .footer-col{
+      width: 100%;
+  }
+}
+
+
+

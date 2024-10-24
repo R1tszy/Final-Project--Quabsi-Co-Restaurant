@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shorcut icon" href="Assets/QClogo.png" type="logo-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="menu.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Quabsi Co | Menu</title>
+
+
+    <style>
+      /* Popup styles */
+      .popup {
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s, opacity 0.5s ease-in-out;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.8);
+        z-index: 100; /* Higher than shopping cart */
+        background: #fff;
+        padding: 20px;
+        width: 400px;
+        border-radius: 6px;
+        text-align: center;
+      }
+      
+      .popup.show {
+        visibility: visible;
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+
+      .errorpopup {
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s, opacity 0.5s ease-in-out;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.8);
+        z-index: 100; /* Higher than shopping cart */
+        background: #fff;
+        padding: 20px;
+        width: 400px;
+        border-radius: 6px;
+        text-align: center;
+      }
+      
+      .errorpopup.showw {
+        visibility: visible;
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+  </style>
+
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <div class="logo"><h1>Quabsi <b>Co</b></h1></div>
+            <nav>
+                <ul>
+                    <li><a class="active" href="index.html" target="_self">Home</a></li>
+                    <li><a href="menu.html" target="_self">Menu</a></li>
+                    <li><a href="service.html" target="_self">Service</a></li>
+                    <li><a href="about.html" target="_self">About</a></li>
+                    <li><a href="contacts.html" target="_self">Contacts</a></li>
+                    <li><a href="reviews.html" target="_self">Reviews</a></li>
+                </ul>
+            </nav>
+
+                                            <!--Shopping Bag Icon-->
+            <div class="shopping-bag">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAcZJREFUSEvtls0rRFEYh593GjuysGFDLEgNysbGxyhbVlZWNuY2+UiWspiUpWyIi4V/wIJslPKVspFEKQtlw8pCSU10D24XMzrmnDuzmNSc3bnnd37PfT/uPUco0pAicQkNVgphnRYUnSiqEM5R7IrDa5ggrMEqRYRqhhBmgfpfkPuPEFKSYM0Wbg92WQAmDcbj4rBoA7cCqxX6EbYDwzsUUwhH/lwRR5gHagEPj25JcmKC24FdToEO4JFXmmSMx0xjtUQ1UW6ACmBTHAYLBqsUUWp4AcqAGXGY05kq138+DaRJUykTpHPBjRErl3bgzDcR+iXBjha8ygCKrWCtVRwuCwMvEyfCvm/i0StJDrRgS93X3qyI1RLlRLkAGkw1Crl+yxttMsqzHrxGF17QrSGdjfII3TLCsR6cma4fpztgI5gOA3V/QHLrfpUpO9V68KE4xP1P1vXr2/MHOLfuP4GN5bMS5BGxla9RVAJn/ez1XW3MopWglOpSqr+PQKuOCSEyNFeMSO4DPAQqW+rRIkmu9KfT5xW2hmugMW+AfuMNDzRLCk8LDk6gSoQ+FDH/slPY+Lz+X31c/vfE4SnTqlDjvF+raOB3xQ63H/809cYAAAAASUVORK5CYII="/>
+              <span class="notification"></span>
+            </div>
+        </div>
+    </header>
+
+
+<div id="responseMessage" class="response-message" style="display: none;"></div>
+
+ <!------Shopping Cart---------->
+<div class="shopping-cart" id="shoppingCart">
+  <div class="shopping-cart-header">
+      <h3>Your Order</h3>
+  </div>
+  <div class="shopping-cart-items">
+  </div>
+  <div class="quantity-options">
+  </div>
+  <p class="total-price" id="totPrice"></p>
+
+
+
+ <!------Mode of Payment Options---------->
+  <label for="mode-payment">What is your mode of payment?</label>
+  <select id="mode-payment" name="mode-payment" required>
+      <option value="" disabled selected>Select an option</option>
+      <option value="visa">VISA</option>
+      <option value="master_card">Master Card</option>
+      <option value="BDO_card">BDO Card</option>
+      <option value="BPI_card">BPI Card</option>
+      <option value="paypal">Paypal</option>
+      <option value="Gcash">Gcash</option>
+      <option value="COD">Cash On Delivery (COD)</option>
+  </select>
+  
+  <!--Make Order Button-->
+  <button type="button" class="make-order" onclick="togglePopup()">Place Order</button>
+  
+  
+  <!--Cancel Order Button-->
+  <button type="button" id="clear" class="cancel-order">Clear Order</button>
+</div>
+
+
+<!--Popup-->
+<div class="popup" id="myPopup"> 
+  <img src="Menupopup/checkresponse.png">
+  <h2>Thank You!</h2>
+  <p>Your order is being prepared. Please wait while we serve it to your table. Thank you!</p>
+  <!--Popup OK Button-->
+  <button type="button" onclick="hidePopup()">OK</button>
+</div>
+
+<!--Error Popup-->
+<div class="errorpopup" id="errorpop"> 
+  <img src="Menupopup/errorresponse.png">
+  <h2>I'm Sorry!</h2>
+  <p>You cannot place order with an empty cart!</p>
+  <!--Popup OK Button-->
+  <button type="button" onclick="hidePopup()">OK</button>
+</div>
+
+
+
+
+    <h2 class="header">MENU</h2><br>
+<body>
+
+
+                        <!--Popular Western Food-->
+ <div class="menu-container">
+  <div class="menu-category">
+    <h3>Popular Food</h3>
+    <div class="menu-items">
+      <div class="menu-item">
+        <img src="Assets/burgersmokey.jpg" alt="burgeryum">
+        <h3>Beef Burger</h3>
+        <p>A juicy beef patty is grilled to perfection and served on a toasted bun with fresh lettuce, tomato, and pickles. Topped with melted cheese and your choice of condiments, this classic burger is a satisfying and flavorful meal.</p>
+        <h4>₱85</h4>
+        <p><button>Add to Cart</button></p>
+      </div>
+
+
+      <div class="menu-item">
+        <img src="Assets/clubhouse1.jpg" alt="Clubhouse">
+        <h3>Clubhouse Sandwich</h3>
+        <p>A classic triple-decker sandwich layered with tender chicken, crispy bacon, fresh lettuce, tomatoes, and creamy mayo, all stacked between toasted bread slices. Served with a side of fries, it's the perfect hearty meal for any time of the day.</p>
+        <h4>₱120</h4>
+        <p><button>Add to Cart</button></p>
+      </div>
+
+
+      <div class="menu-item">
+        <img src="Assets/siomai1.jpg" alt="siomai">
+        <h3>Siomai</h3>
+        <p>Steamed to perfection, our Siomai features savory pork and shrimp filling wrapped in delicate wonton skin. Served with a side of soy sauce and calamansi, these bite-sized dumplings offer a burst of flavor in every bite. Perfect for sharing!</p>
+        <h4>₱75</h4>
+        <p><button>Add to Cart</button></p>
+      </div>
+
+
+      <div class="menu-item">
+        <img src="Assets/shawarma1.jpg" alt="shawarma">
+        <h3>Shawarma</h3>
+        <p>TIndulge in our flavorful blend of marinated, slow-cooked meat, wrapped in warm pita bread with crisp vegetables and drizzled with garlic sauce. Each bite offers a delicious mix of spices and textures, perfect for a satisfying meal.</p>
+        <h4>₱75</h4>
+        <p><button>Add to Cart</button></p>
+      </div>
+
+
+      <div class="menu-item">
+        <img src="Assets/friedchick1.jpg" alt="chicken">
+        <h3>Fried Chicken</h3>
+        <p>Savor our crispy Fried Chicken, marinated to perfection and fried golden brown. Each piece boasts a juicy, tender interior with a flavorful, crunchy exterio. Served hot with your choice of sides for an irresistible, satisfying meal.</p>
+        <h4>₱385</h4>
+        <p><button>Add to Cart</button></p>
+      </div>
+
+
+      <div class="menu-item">
+        <img src="Assets/pepperoni.jpg" alt="Pinaupong Manok">
+        <h3>Pepperoni Pizza</h3>
+        <p>Indulge in our Pepperoni Pizza, featuring a crispy crust topped with rich tomato sauce, melted mozzarella, and savory pepperoni slices. Baked to perfection, it’s a delightful blend of flavors and textures that promises a truly delicious experience.</p>
+        <h4>₱480</h4>
+        <p><button>Add to Cart</button></p>
+      </div>
+    </div>
+  </div>
+
+
+
+                    <!--Main Course-->
+    <div class="menu-container">
+      <div class="menu-category">
+        <h3>Main Course</h3>
+        <div class="menu-items">
+          <div class="menu-item">
+            <img src="Assets/lucing.jpg" alt="Sisig">
+            <h3>Sisig</h3>
+            <p>A sizzling Filipino dish made from chopped pig's head and liver, seasoned with calamansi, onions, and chili peppers.</p>
+            <h4>₱230</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/liempo.jpg" alt="Barbecue Liempo">
+            <h3>Pork Liempo Barbecue</h3>
+            <p>Grilled pork belly marinated in a blend of soy sauce, vinegar, and spices, offering a savory and smoky flavor.</p>
+            <h4>₱280</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/umba.jpg" alt="Umba Pata">
+            <h3>Umba</h3>
+            <p>A sweet and savory Kapampangan braised pork dish, slow-cooked in soy sauce, sugar, and spices until tender and flavorful.</p>
+            <h4>₱320</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/dinuguan.jpg" alt="Dinuguan">
+            <h3>Dinuguan</h3>
+            <p>Try our Dinuguan, a rich, savory Filipino stew made with tender pork and simmered in a spiced, flavorful pork blood sauce.</p>
+            <h4>₱180</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/karekare.jpg" alt="Kare-Kare">
+            <h3>Kare-Kare</h3>
+            <p>A traditional Filipino oxtail stew with vegetables, cooked in a rich peanut sauce and typically served with shrimp paste.</p>
+            <h4>₱240</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/porkasado.jpg" alt="Pork Asado">
+            <h3>Pork Asado</h3>
+            <p>A traditional Kapampangan dish featuring tender pork or beef stewed in a rich, savory tomato sauce with a blend of local spices.</p>
+            <h4>₱260</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+        
+             
+          <div class="menu-item">
+            <img src="Assets/pork sinigang.jpg" alt="Pork Sinigang">
+            <h3>Pork Sinigang</h3>
+            <p>A sour tamarind-based soup with tender pork chunks, assorted vegetables, and a distinct tangy flavor.</p>
+            <h4>₱309</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+
+          <div class="menu-item">
+            <img src="Assets/porkbarbecue.jpg" alt="Pork Barbecue">
+            <h3>Pork Barbecue</h3>
+            <p>Skewered pork marinated in a sweet and savory sauce, grilled to achieve a caramelized and smoky flavor.</p>
+            <h4>₱145</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/pinaupo.jpg" alt="Pinaupong Manok">
+            <h3>Pinaupong Manok</h3>
+            <p>Enjoy our savor chicken tender, slow-cooked chicken stuffed with aromatic spices and vegetables. It’s a flavorful, savory dish with a rich, comforting taste.</p>
+            <h4>₱350</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+        </div>
+      </div>
+
+                            <!--Rice-->
+      <div class="menu-category">
+        <h3>Rice</h3>
+        <div class="menu-items">
+          <div class="menu-item">
+            <img src="Assets/plainrice.jpg" alt="Plain Rice">
+            <h3>Plain Rice</h3>
+            <p>Enjoy our perfectly cooked plain rice. Simple yet essential, it’s the ideal accompaniment to any meal, enhancing flavors with its light, comforting texture.</p>
+            <h4>₱60</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/javarice.jpg" alt="Java Rice">
+            <h3>Java Rice</h3>
+            <p>Flavored rice cooked with a blend of spices, soy sauce, and garlic, offering a savory and slightly spicy taste.</p>
+            <h4>₱75</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/friedrice.jpg" alt="Fried Rice">
+            <h3>Fried Rice</h3>
+            <p>Stir-fried rice with a mix of vegetables, eggs, and optional meat, seasoned with soy sauce and sometimes garnished with green onions.</p>
+            <h4>₱95</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+        </div>
+    </div>
+
+                                <!--Noodles-->
+      <div class="menu-category">
+        <h3>Noodles</h3>
+        <div class="menu-items">
+          <div class="menu-item">
+            <img src="Assets/chinese canton.jpg" alt="Canton">
+            <h3>Beef Chinese Canton</h3>
+            <p> Stir-fried noodles with tender slices of beef, vegetables, and a savory soy-based sauce, popular for its rich flavor and satisfying texture.</p>
+            <h4>₱135</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+      
+      <div class="menu-item">
+        <img src="Assets/padwoosen.jpg" alt="Pad Woo Sen">
+        <h3>Pad Woo Sen</h3>
+        <p>Thai stir-fried glass noodles with a mix of vegetables, meat (such as chicken or pork), and a savory sauce, known for its light yet flavorful profile.</p>
+        <h4>₱165</h4>
+        <p><button>Add to Cart</button></p>
+      </div>
+
+      <div class="menu-item">
+        <img src="Assets/woonheng.jpg" alt="Woon Heng">
+        <h3>Woon Heng</h3>
+        <p>A Filipino-Chinese noodle dish featuring stir-fried noodles with vegetables, meat, and a sweet-savory sauce, offering a satisfying and well-balanced taste.</p>
+        <h4>₱180</h4>
+        <p><button>Add to Cart</button></p>
+      </div>
+
+          <div class="menu-item">
+            <img src="Assets/pancitgisado.jpg" alt="Pancit Gisado">
+            <h3>Pancit Gisado</h3>
+            <p>Enjoy Pancit Gisado, a savory Filipino noodle dish stir-fried with tender pork, vegetables, and a flavorful sauce. It’s a satisfying, delicious blend of textures and tastes in every bite.</p>
+            <h4>₱145</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+        
+          <div class="menu-item">
+            <img src="Assets/pancitpalabok.jpg" alt="Pancit Palabok">
+            <h3>Pancit Palabok</h3>
+            <p>A traditional Filipino noodle dish made with rice noodles in a rich, savory garlic sauce, topped with pork, shrimp, and a hard-boiled egg, garnished with chicharrón and green onions.</p>
+            <h4>₱145</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/pansithabhab.jpg" alt="Pancit Habhab">
+            <h3>Pansit Habhab</h3>
+            <p>A Kapampangan noodle dish featuring stir-fried rice noodles with vegetables and a savory sauce, typically served on a banana leaf for an authentic touch.</p>
+            <h4>₱145</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+        </div>
+    </div>
+       
+
+
+                            <!--Appetizer-->
+      <div class="menu-category">
+        <h3>Appetizer</h3>
+        <div class="menu-items">
+          <div class="menu-item">
+            <img src="Assets/bringhe.jpg" alt="Bringhe">
+            <h3>Bringhe</h3>
+            <p>A Filipino rice dish similar to paella, made with glutinous rice cooked in coconut milk, with a mix of meat (like chicken or pork), vegetables, and spices.</p>
+            <h4>₱125</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/okoy.jpg" alt="Okoy">
+            <h3>Okoy</h3>
+            <p>Crispy Filipino shrimp fritters mixed with vegetables and deep-fried until golden brown, typically served with a vinegar dipping sauce.</p>
+            <h4>₱70</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/empanada.jpg" alt="Empanada">
+            <h3>Empanada</h3>
+            <p>Pastry filled with a savory mixture of meat, vegetables, and spices, baked or fried until crispy and golden.</p>
+            <h4>₱55</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/springrolls.jpg" alt="Spring Rolls">
+            <h3>Spring Rolls</h3>
+            <p>Thin, crispy rolls filled with a mixture of vegetables and sometimes meat, served with a sweet and tangy dipping sauce.</p>
+            <h4>₱60</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/nachos.jpg" alt="Nachos">
+            <h3>Nachos</h3>
+            <p>Tortilla chips topped with melted cheese, seasoned ground meat, and various toppings like jalapeños, guacamole, and sour cream.</p>
+            <h4>₱240</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/tacos.jpg" alt="Tacos">
+            <h3>Tacos</h3>
+            <p>Soft or crunchy tortillas filled with seasoned meat, vegetables, and various toppings, such as lettuce, cheese, and salsa.</p>
+            <h4>₱260</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/roastedkamote.jpg" alt="Roasted Kamote">
+            <h3>Roasted Kamote</h3>
+            <p>Sweet potatoes roasted until tender and caramelized, often enjoyed as a simple and wholesome snack.</p>
+            <h4>₱85</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+
+        <div class="menu-item">
+            <img src="Assets/mashedpotato.jpg" alt="Mashed Potato">
+            <h3>Mashed Potato</h3>
+            <p>Creamy and buttery mashed potatoes, seasoned with salt and pepper, often served as a comforting side dish.</p>
+            <h4>₱60</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/californiamaki.jpg" alt="California Maki">
+            <h3>California Maki</h3>
+            <p>Sushi rolls filled with imitation crab, avocado, cucumber, and sometimes topped with a sprinkle of sesame seeds or fish roe.</p>
+            <h4>₱275</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+        </div>
+    </div>
+
+
+                         <!--Salad-->
+      <div class="menu-category">
+        <h3>Salad</h3>
+        <div class="menu-items">
+          <div class="menu-item">
+            <img src="Assets/coleslaw salad.jpg" alt="Coleslaw Salad">
+            <h3>Coleslaw Salad</h3>
+            <p>Enjoy our coleslaw salad: a crisp blend of cabbage and carrots tossed in a creamy, tangy dressing. It's a refreshing, crunchy side that enhances any meal.</p>
+            <h4>₱295</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/applesalad.jpg" alt="Apple Salad">
+            <h3>Apple Salad</h3>
+            <p>A crisp and sweet salad featuring diced apples, nuts, and celery, often dressed with a light mayonnaise or yogurt-based dressing.</p>
+            <h4>₱320</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+          <div class="menu-item">
+            <img src="Assets/kanisalad.jpg" alt="Kani Salad">
+            <h3>Kani Salad</h3>
+            <p>A Japanese-inspired salad with shredded imitation crab sticks (kani), cucumber, and mango, mixed with a creamy sesame-mayo dressing.</p>
+            <h4>₱360</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+                            <!--Drinks-->
+        </div>
+      </div>
+      <div class="menu-category">
+        <h3>Drinks</h3>
+        <div class="menu-items">
+          <div class="menu-item">
+            <img src="Assets/fruit and milshakes.jpg" alt="Fruity Milk Shakes">
+            <h3>Fruity Milk Shakes</h3>
+            <p>Indulge in our Fruity Milkshakes, a delightful blend of fresh fruit and creamy milkshake base. Each sip is a refreshing, fruity treat for all ages.</p>
+            <h4>₱180</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/bukoshake.jpg" alt="Buko Shake">
+            <h3>Buko Shake</h3>
+            <p>Enjoy our buko shake a creamy, refreshing blend of fresh coconut and smooth milk, delivering a tropical, satisfying taste in every cool, delicious sip.</p>
+            <h4>₱145</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/avocadoshake.jpg" alt="Avocado Shake">
+            <h3>Avocado Shake</h3>
+            <p>Try our Avocado Shake: a smooth, creamy blend of ripe avocados and milk. It's a refreshing, indulgent treat with a rich, velvety texture.</p>
+            <h4>₱150</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/fourseason.jpg" alt="Fourseason Juice">
+            <h3>Fourseason Juice</h3>
+            <p>Enjoy our Four Seasons Juice: a vibrant blend of tropical fruits offering a refreshing, tangy flavor. It's a deliciously invigorating drink for any time of day.</p>
+            <h4>₱165</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/bobamilktea.jpg" alt="Boba Milktea">
+            <h3>Boba Milktea</h3>
+            <p>Experience our Boba Milk Tea: a sweet, creamy blend of rich milk tea with chewy tapioca pearls. It's a fun, flavorful drink with every delightful sip.</p>
+            <h4>₱180</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/matchaboba.jpg" alt="Matcha Milktea">
+            <h3>Matcha Milktea</h3>
+            <p>A creamy and earthy drink made from matcha green tea, milk, and sweetener, often served with tapioca pearls.</p>
+            <h4>₱195</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+        </div>
+      </div>
+
+
+                                <!--Disserts-->
+      <div class="menu-category">
+        <h3>Desserts</h3>
+        <div class="menu-items">
+          <div class="menu-item">
+            <img src="Assets/oatsfruity ice cream.jpg" alt="Oats Ice Cream">
+            <h3>Oats Ice Cream</h3>
+            <p>A creamy and healthy ice cream made with oats, offering a unique and nutritious twist on a classic treat.</p>
+            <h4>₱175</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+          
+          <div class="menu-item">
+            <img src="Assets/strawberrycake.jpg" alt="Strawberry Cake">
+            <h3>Strawberry Cake</h3>
+            <p>A light and fluffy cake layered with fresh strawberries and whipped cream, perfect for any occasion.</p>
+            <h4>₱220 - Sliced</h4>
+            <h4>₱870 - Whole</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/brownies.jpg" alt="Choco Chip Brownies">
+            <h3>Choco Chip Brownies</h3>
+            <p>A Rich and fudgy brownies loaded with chocolate chips, offering a decadent and chocolaty treat.</p>
+            <h4>₱75 - Sliced</h4>
+            <h4>₱195 - Box</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/lecheflan.jpg" alt="Leche Flan">
+            <h3>Leche Flan</h3>
+            <p>A classic Filipino dessert made from a creamy custard topped with a caramel sauce, smooth and delicious.</p>
+            <h4>₱110 - Small Tub</h4>
+            <h4>₱180 - Big Tub</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/ubekalamay.jpg" alt="Ube Kalamay">
+            <h3>Ube Kalamay</h3>
+            <p>A sticky and sweet Filipino rice cake made from glutinous rice and purple yam, topped with latik (coconut curds).</p>
+            <h4>₱155 - Sliced</h4>
+            <h4>₱780 - Bilao</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+
+          <div class="menu-item">
+            <img src="Assets/majablanca.jpg" alt="Maja Blanca">
+            <h3>Cheesy Maja Blanca</h3>
+            <p>A creamy coconut pudding with corn kernels and cheese, offering a unique blend of sweet and savory flavors.</p>
+            <h4>₱145 - Sliced</h4>
+            <h4>₱685 -   Bilao</h4>
+            <p><button>Add to Cart</button></p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+
+
+    <!---Footer---->
+    <footer>
+      <div class="footer-col">
+          <h4><b>Assets</b></h4>
+          <ul>
+              <li><a href="menu.html">Menu</a></li>
+              <li><a href="service.html">Service</a></li>
+              <li><a href="reviews.html">Reviews</a></li>
+          </ul>
+      </div>
+      <div class="footer-col">
+          <h4><b>Better Know Us</b></h4>
+          <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contacts.html">Contacts</a></li>
+              <li><a href="branch.html">Branch</a></li>
+          </ul>
+      </div>
+      <div class="footer-col">
+          <h4><b>Kapampangan's Pride</b></h4>
+          <ul>
+              <li><a href="delicacies.html">Delicacies</a></li>
+              <li><a href="otherproducts.html">Other Products Selling</a></li>
+          </ul>
+      </div>
+      <div class="footer-col">
+          <h4><b>Get in touch</b></h4>
+          <div class="links">
+            <a href="https://www.tiktok.com/@camillecolmenares1/video/7256745722106760453?q=catering&t=1726329788294" target="_blank" class="icon tiktok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.facebook.com/quabsico" target="_blank" class="icon facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/home"  target="_blank" class="icon twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/quabsico/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+      </div>
+  </footer>
+  <script src="navbar.js"></script>
+</body>
+</html>
